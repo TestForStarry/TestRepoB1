@@ -3,7 +3,7 @@ on: [push, pull_request]
 
 jobs:
   test-external:
-    uses: TestForStarry/MainRepoB/.github/workflows/ci.yml@main
+    uses: TestForStarry/MainRepoB/.github/workflows/ci.yaml@main
     with:
       # The directory to Top test, which need to be empty or not exist in this repository
       CallerPackage: TestRepoB1
