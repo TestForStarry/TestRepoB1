@@ -2,8 +2,23 @@ name: Test
 on: [push, pull_request]
 
 jobs:
+  clippy:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix: 
+        rust-toolchain: [nightly]
+    steps:
+    - uses: actions/checkout@v4
+    - uses: dtolnay/rust-toolchain@stable
+      with:
+        toolchain: ${{ matrix.rust-toolchain }}
+        components: rust-src, clippy, rustfmt
+    - name: Clippy for the default target
+      run: cargo clippy --all-targets --all-features -- -D warnings
+
   test-external:
     uses: TestForStarry/MainRepoB/.github/workflows/ci.yaml@main
     with:
       # The directory to Top test, which need to be empty or not exist in this repository
-      CallerPackage: TestRepoB1
+      CallerPackage: test_repo_b1

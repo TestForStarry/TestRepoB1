@@ -3,5 +3,5 @@
 version = 3
 
 [[package]]
-name = "TestRepoB1"
+name = "test_repo_b1"
 version = "0.1.0"
