@@ -18,9 +18,7 @@ jobs:
       run: cargo clippy --all-targets --all-features -- -D warnings
 
   test-external:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: TestForStarry/MainRepoB/.github/workflows/ci.yaml@main
-        with:
-          # The directory to Top test, which need to be empty or not exist in this repository
-          CallerPackage: test_repo_b1
+    uses: TestForStarry/MainRepoB/.github/workflows/ci.yaml@main
+    with:
+      # The directory to Top test, which need to be empty or not exist in this repository
+      CallerPackage: test_repo_b1
